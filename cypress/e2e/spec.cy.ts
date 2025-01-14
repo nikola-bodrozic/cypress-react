@@ -1,7 +1,6 @@
 describe('Users Component', () => {
   console.log(`The current environment is ${process.env.NODE_ENV}`);
 
-  const baseReactUrl = "http://localhost:3000"
   const baseApiUrl = "https://jsonplaceholder.typicode.com"
 
   before(() => {
@@ -11,7 +10,7 @@ describe('Users Component', () => {
   });
 
   beforeEach(() => {
-    cy.visit(`${baseReactUrl}/users`);
+    cy.visit("/users");
   });
 
   it('should display list of users', () => {

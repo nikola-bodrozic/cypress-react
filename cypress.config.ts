@@ -7,4 +7,6 @@ export default defineConfig({
     },
     baseUrl: "http://localhost:8000"
   },
+  video: false,
+  screenshotOnRunFailure: true
 });

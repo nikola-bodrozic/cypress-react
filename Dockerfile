@@ -8,8 +8,6 @@ COPY yarn.lock .
 
 RUN yarn
 
-RUN apk update && apk add
-
 COPY . .
 
 RUN yarn run build

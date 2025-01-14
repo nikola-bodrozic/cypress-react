@@ -1,11 +1,8 @@
 describe('Users Component', () => {
-  const { NODE_ENV } = process.env;
+  console.log(`The current environment is ${process.env.NODE_ENV}`);
 
-  console.log(`The current environment is ${NODE_ENV}`);
-  
-  let baseURL = "http://localhost"
-  if (NODE_ENV?.toUpperCase() === "PRODUCTION") baseURL += ":8000"
-  if (NODE_ENV?.toUpperCase() === "DEVELOPMENT") baseURL += ":3000"
+  const baseReactUrl = "http://localhost:3000"
+  const baseApiUrl = "https://jsonplaceholder.typicode.com"
 
   before(() => {
     cy.fixture("users").then((data) => {
@@ -14,11 +11,11 @@ describe('Users Component', () => {
   });
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/users');
+    cy.visit(`${baseReactUrl}/users`);
   });
 
   it('should display list of users', () => {
-    cy.intercept("GET", `https://jsonplaceholder.typicode.com/users`, { statusCode: 200, body: this.data.users }).as("getData");
+    cy.intercept("GET", `${baseApiUrl}/users`, { statusCode: 200, body: this.data.users }).as("getData");
     cy.get('#loader').should('be.visible');
     cy.wait("@getData").then((interception) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions

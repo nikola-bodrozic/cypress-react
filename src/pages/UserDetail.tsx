@@ -34,13 +34,13 @@ const UserDetail: React.FC = () => {
   if (!user) {
     return <div>User not found.</div>;
   }
-
+  const {name, email, phone, website} = user
   return (
     <div>
-      <h1>{user.name}</h1>
-      <p>Email: {user.email}</p>
-      <p>Phone: {user.phone}</p>
-      <p>Website: {user.website}</p>
+      <h1>{name}</h1>
+      <p>Email: {email}</p>
+      <p>Phone: {phone}</p>
+      <p>Website: {website}</p>
     </div>
   );
 };

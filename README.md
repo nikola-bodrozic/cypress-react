@@ -1,6 +1,6 @@
 # Cypress Testing
 
-This is React app that makes API call to [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users) and then render list on Users page.
+This repo shows how to test React app that makes API call to [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users) and then render list on Users page.
 That call is mocked in spec at `cypress/e2e/spec.cy.ts`
 
 ## Install

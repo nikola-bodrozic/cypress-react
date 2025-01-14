@@ -13,6 +13,10 @@ yarn start
 ```
 open app on `localhost:3000`
 
+## Test Spec
+
+in file `cypress.config.ts` you can change React URL 
+
 and then start cypress testing
 
 ```sh

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../App.css';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../App.css";
+import { Link } from "react-router-dom";
 
 interface User {
   id: number;
@@ -11,34 +11,34 @@ interface User {
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch data from JSONPlaceholder
-    axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(response => {
-        setUsers(response.data.slice(0, 5)); // Get first 10 users
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        setUsers(response.data.slice(0, 5));
         setLoading(false);
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
+      .catch((error) => {
+        console.error("Error fetching data:", error);
         setLoading(false);
       });
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div id="loader">Loading...</div>;
   }
 
   return (
-    <div className="about-container">
-      <h1>About Page</h1>
+    <div>
+      <h1 id="pageTitle">Users Page</h1>
       <h2>Users</h2>
-      <ul>
-        {users.map(user => (
+      <ul id="userList">
+        {users.map((user) => (
           <li key={user.id}>
             <h3>
-              <Link to={`/users/${user.id}`}>{user.name}</Link>
+              <Link className="userName" to={`/users/${user.id}`}>{user.name}</Link>
             </h3>
             <p>Email: {user.email}</p>
           </li>

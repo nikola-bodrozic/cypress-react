@@ -11,14 +11,14 @@ const App: React.FC = () => {
     <Router>
       <div className="app-container">
         <div className="content-container">
-          <>{process.env.NODE_ENV} mode</>
+          <span id="mode">{process.env.NODE_ENV} mode</span>
           <nav>
             <ul>
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/users">Users</Link>
+                <Link id="navUsers" to="/users">Users</Link>
               </li>
               <li>
                 <Link to="/contact">Contact</Link>

@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Aurélie Dupont",
+      "username": "DupontA",
+      "email": "aurelie.dupont@example.fr",
+      "address": {
+        "street": "Rue de la Paix",
+        "suite": "Apt. 12B",
+        "city": "Paris",
+        "zipcode": "75002",
+        "geo": {
+          "lat": "48.8566",
+          "lng": "2.3522"
+        }
+      },
+      "phone": "01 23 45 67 89",
+      "website": "aurelie-dupont.fr",
+      "company": {
+        "name": "Dupont S.A.",
+        "catchPhrase": "L'innovation continue",
+        "bs": "révolutionner les services web"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Émile Martin",
+      "username": "MartinE",
+      "email": "emile.martin@example.fr",
+      "address": {
+        "street": "Avenue des Champs-Élysées",
+        "suite": "Suite 5A",
+        "city": "Paris",
+        "zipcode": "75008",
+        "geo": {
+          "lat": "48.8566",
+          "lng": "2.3522"
+        }
+      },
+      "phone": "01 98 76 54 32",
+      "website": "emile-martin.fr",
+      "company": {
+        "name": "Martin & Co",
+        "catchPhrase": "Stratégies innovantes",
+        "bs": "synergiser les chaînes d'approvisionnement"
+      }
+    }
+  ]
+}

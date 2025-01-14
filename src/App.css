@@ -51,7 +51,7 @@ nav a:hover {
   margin-top: 20px;
 }
 
-.item {
+.selected {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;

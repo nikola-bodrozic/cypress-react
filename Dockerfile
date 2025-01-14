@@ -8,7 +8,7 @@ COPY yarn.lock .
 
 RUN yarn
 
-RUN apk update && apk add --no-cache xvfb curl xvfb-run
+RUN apk update && apk add
 
 COPY . .
 

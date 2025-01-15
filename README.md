@@ -1,9 +1,9 @@
 # Cypress Spec Testing
 
-This repo shows how to test React app in container using Cypress that is also in container.
+This repo shows how to test React app in in one container using Cypress that is in other container.
 
-Image `<docker-hub-user>/react-nginx` has page `/users` that renders users from json typicode. 
-The end point is `https://jsonplaceholder.typicode.com/users` and it's mocked so during testing no live API is requred.
+Image `nikolabod/react-nginx` has route `/users` that renders users from API end point `https://jsonplaceholder.typicode.com/users`. 
+The end point is  and it's mocked so during Cypress testing no live API is requred.
 This solution can be integrated in CI/CD pipeline.
 Mock data are in `cypress/fixtures/users.json`. Spec is in `cypress/e2e/spec.cy.js`. Base URL is in `cypress.config.ts`
 
@@ -21,4 +21,4 @@ docker run -it --rm --entrypoint bash cypress-runner -c "npx cypress run"
 
 clean up `docker rm -f react-nginx`
 
-
+Source code with Dockerfile for `nikolabod/react-nginx` is at [https://gitlab.com/jackwrfv/react-starter](https://gitlab.com/jackwrfv/react-starter)

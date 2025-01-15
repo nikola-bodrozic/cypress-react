@@ -1,6 +1,6 @@
 # Cypress Spec Testing
 
-This repo shows how to test SPA app in container using Cypress that is also in container.
+This repo shows how to test React app in container using Cypress that is also in container.
 
 Image `<docker-hub-user>/react-nginx` has page `/users` that renders users from json typicode. 
 The end point is `https://jsonplaceholder.typicode.com/users` and it's mocked so during testing no live API is requred.

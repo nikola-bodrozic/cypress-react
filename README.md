@@ -1,24 +1,23 @@
-# Cypress Spec Testing
+# Cypress Testing
 
-This repo shows how to test React app in in one container using Cypress that is in other container.
+This repo shows how to test React app that makes API call to [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users) and then render list on Users page - [http://localhost:3000/users](http://localhost:3000/users)
 
-Image `nikolabod/react-nginx` has route `/users` that renders users from API end point `https://jsonplaceholder.typicode.com/users`. 
-The end point is  and it's mocked so during Cypress testing no live API is requred.
-This solution can be integrated in CI/CD pipeline.
-Mock data are in `cypress/fixtures/users.json`. Spec is in `cypress/e2e/spec.cy.js`. Base URL is in `cypress.config.ts`
+That API call is mocked in spec at `cypress/e2e/render-users.cy.ts` and corresponding JSON data are in `cypress/fixtures/users.json` this solution is CI/CD friendly since live API does not to be up. Only react app must be up for successful Cypress testing. You can set baseUrl in file `cypress.config.ts`
+
+## Install and run in develepment
 
 ```sh
-# create container from prod image 
-docker run -d --name react-nginx -p 80:8000 <docker-hub-user>/react-nginx:latest
-
-# build and push cypress image
-docker build . -f Dockerfile.base -t <docker-hub-user>/cypress-runner
-docker push <docker-hub-user>/cypress-runner
-
-#run test
-docker run -it --rm --entrypoint bash cypress-runner -c "npx cypress run"
+yarn
+yarn start
 ```
 
-clean up `docker rm -f react-nginx`
+open app on [http://localhost:3000](http://localhost:3000) and run
+```sh
+yarn run e2e # headless browser
+```
 
-Source code with Dockerfile for `nikolabod/react-nginx` is at [https://gitlab.com/jackwrfv/react-starter](https://gitlab.com/jackwrfv/react-starter)
+or for GUI
+```sh
+yarn run e2e:gui 
+```
+select E2E testing, select browser and select spec called `render-users.cy.ts`

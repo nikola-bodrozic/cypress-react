@@ -21,3 +21,14 @@ or for GUI
 yarn run e2e:gui 
 ```
 select E2E testing, select browser and select spec called `render-users.cy.ts`
+
+## Running tests in Cypress container
+
+Make sure that React app is running on port 3000. Create Cypress image as per official docs and run container.
+
+```sh
+docker build -f Dockerfile.base -t cypress-runner .
+docker run --rm --entrypoint bash cypress-runner -c "npx cypress run"
+```
+
+We attached shell of the container and executed command for headless test.

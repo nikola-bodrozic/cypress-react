@@ -16,6 +16,11 @@ open app on [http://localhost:3000](http://localhost:3000) and run
 yarn run e2e # headless browser
 ```
 
+or
+```sh
+npx cypress run # headless browser
+```
+
 or for GUI
 ```sh
 yarn run e2e:gui 

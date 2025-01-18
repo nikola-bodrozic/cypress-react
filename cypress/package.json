@@ -1,0 +1,12 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "Cypress tests",
+  "scripts": {
+    "e2e":"cypress run --config 'supportFile=false'",
+    "e2e:gui":"cypress open --config 'supportFile=false'"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  }
+}

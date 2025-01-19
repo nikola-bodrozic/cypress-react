@@ -19,25 +19,25 @@ in second terminal cd into cypress folder
 ```sh
 cd cypress
 yarn 
-yarn e2e
+yarn e2e --config 'supportFile=false,baseUrl=http://localhost:5000'
 ```
 
 or for GUI
 ```sh
-yarn e2e:gui 
+yarn e2e:gui --config 'supportFile=false,baseUrl=http://localhost:5000'
 ```
 select E2E testing, select browser and select spec called `render-users.cy.js`
 
 ## Running tests in Cypress container
 
-Make sure that React app is running on port 3000. Create Cypress image and run container. In `cypress` folder:
+Make sure that React app is running on port 5000. Create Cypress image and run container. In `cypress` folder:
 
 ```sh
 docker build -f Dockerfile.base -t cypresshb .
 docker run --rm -it --network host \
   -v $(pwd)/cypress/e2e:/opt/app/cypress/e2e \
   -v $(pwd)/cypress/fixtures:/opt/app/cypress/fixtures \
-  cypresshb yarn e2e
+  cypresshb yarn e2e --config 'supportFile=false,baseUrl=http://localhost:5000'
 ```
 
-We attached shell of the container and executed script for headless test. Spec file is in volume on path `cypress/e2e` on developer machine and in container it's `/opt/app/cypress/e2e` 
+We attached shell of the container and executed script for headless test. Spec file is in volume on path `cypress/e2e` on developer machine and in container it's `/opt/app/cypress/e2e` and for fixtures `/cypress/fixtures` is mapped to `/opt/app/cypress/fixtures`

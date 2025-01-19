@@ -4,7 +4,8 @@ This repo shows how to test React app that makes API call to [https://jsonplaceh
 
 That API call is mocked in spec at `cypress/e2e/render-users.cy.js` and corresponding JSON data are in `cypress/fixtures/mockData.json` this solution is CI/CD friendly since live API does not to be up. Only react app must be up for successful Cypress testing. You can set baseUrl in file `cypress.config.js`
 
-## Install and run prod build on port 5000
+## Install and run react app
+serve prod bundle in `build` folder on port 5000
 
 ```sh
 cd react
@@ -33,11 +34,19 @@ select E2E testing, select browser and select spec called `render-users.cy.js`
 Make sure that React app is running on port 5000. Create Cypress image and run container. In `cypress` folder:
 
 ```sh
-docker build -f Dockerfile.base -t cypresshb .
+docker build -f Dockerfile.base -t nikolabod/cypresshb .
 docker run --rm -it --network host \
   -v $(pwd)/cypress/e2e:/opt/app/cypress/e2e \
   -v $(pwd)/cypress/fixtures:/opt/app/cypress/fixtures \
-  cypresshb yarn e2e --config 'supportFile=false,baseUrl=http://localhost:5000'
+  nikolabod/cypresshb yarn e2e --config 'supportFile=false,baseUrl=http://localhost:5000'
 ```
 
 We attached shell of the container and executed script for headless test. Spec file is in volume on path `cypress/e2e` on developer machine and in container it's `/opt/app/cypress/e2e` and for fixtures `/cypress/fixtures` is mapped to `/opt/app/cypress/fixtures`
+
+For CI/CD puroposes you can build react image and run container. In react folder 
+```sh
+docker build -t nikolabod/react-prod-build .
+docker run --name react -p 5000:5000 nikolabod/react-prod-build 
+```
+
+clean up `docker rm -f react`
